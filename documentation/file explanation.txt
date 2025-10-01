@@ -1,0 +1,48 @@
+create_sample_db.py
+
+    > This Python script generates a database.db file with randomized sample data for demonstration purposes. It creates two tables:
+        > customers – stores customer information such as ID, name, registration date, and total accumulated points.
+        > transactions – stores transaction history including ticket number, fuel type, purchase amount, points earned, date, and the associated customer ID.
+    > The script initializes the database, inserts randomly generated customer profiles, and populates each customer with a set of randomized transactions. The points are automatically calculated as 1% of the total spending.
+    > In short: It creates a database and fills it with sample data to simulate realistic customer and transaction records for testing or demonstration.
+
+migrate_database.py
+
+    > This Python script is a database migration utility for database.db. It ensures that the database schema is up-to-date and compatible with the requirements of the Gasoline-Fuel-Reward-System while keeping existing data safe.
+    > Key Functions:
+        > backup_database() – Creates a timestamped backup of the existing database.db file before making any changes, ensuring data safety in case of migration errors.
+        > migrate_database() – Connects to the database and performs schema updates:
+            > Verifies the customers table:
+                > Ensures total_points column exists and is of type REAL.
+                > If the column is INTEGER, migrates data into a new table with the correct type.
+            > Verifies the transactions table:
+                > Ensures the points_earned column exists; if missing, it is added.
+            > Prints the final schema of all tables for confirmation.
+            > Rolls back changes if migration fails to prevent corruption.
+    > In short: This script backs up and migrates the database schema safely, making sure required columns exist with the correct data types without losing existing data.
+
+
+requirements.txt
+
+    > 🔹 Core Flask & Dependencies
+        Flask==3.1.0 → The main web framework you’re using to build your app.
+        Werkzeug==3.1.3 → Provides WSGI utilities (HTTP handling, routing, middleware). Flask relies on this.
+        Jinja2==3.1.6 → Template engine for rendering HTML in Flask apps.
+        MarkupSafe==3.0.2 → Used by Jinja2 for escaping text safely in templates.
+        itsdangerous==2.2.0 → Handles securely signing tokens (e.g., for sessions or CSRF protection).
+        click==8.1.8 → A CLI helper library used by Flask for commands like flask run.
+        blinker==1.9.0 → Provides signals (e.g., event system inside Flask).
+
+    🔹 Database
+        psycopg2-binary==2.9.10 → PostgreSQL database adapter for Python. Lets Flask connect to Postgres.
+ 
+    🔹 Deployment
+        gunicorn==21.2.0 → Production-grade WSGI HTTP server (commonly used to serve Flask apps on Linux/Heroku/Docker).
+
+    🔹 Development Utilities
+        python-dotenv==1.0.0 → Loads environment variables from a .env file (useful for local dev).
+        colorama==0.4.6 → Improves console output (colors, formatting), often used in CLI/debugging.
+
+    🔹 Timezone Handling
+        pytz==2025.2 → Library for timezone support (used if you deal with multiple timezones in logs/transactions).
+

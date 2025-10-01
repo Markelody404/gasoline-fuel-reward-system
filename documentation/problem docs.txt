@@ -1,0 +1,127 @@
+Project Issues & Fix Documentation
+==================================
+
+1. Transaction "All Time" Section Performance
+---------------------------------------------
+Problem: In the transactions "All Time" section, the system displays all data at once. 
+This heavy load slows down the website and causes slight lag.
+
+Proposed Solution: Limit the display to 10 records at a time, then load another 10 
+when scrolling down (infinite scroll / pagination). Apply this to other sections as well, 
+not just "All Time".
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+2. Calendar Logic Incomprehensible
+----------------------------------
+Problem: The current calendar logic is unclear and does not provide an accurate 
+basis for generating reports.
+
+Proposed Solution: Implement the calendar directly inside the logic so that clients 
+can generate clear and accurate reports of gasoline performance.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+3. Dark Mode Feature
+--------------------
+Problem: No dark mode feature is available in the system, limiting user experience.
+
+Proposed Solution: Add a dark mode toggle or automatic theme detection.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+4. Tedious Dependency Installation
+----------------------------------
+Problem: Each Python dependency must be installed manually, which is time-consuming.
+
+Proposed Solution: Provide a single requirements.txt file that contains all dependencies, 
+allowing developers to install everything with one command:
+    pip install -r requirements.txt
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+5. Transaction Edit Button Malfunction
+--------------------------------------
+Problem: In the transactions section, the Edit button only works once. After a single edit, 
+it becomes unresponsive unless the browser is restarted. Additionally, the icon disappears, 
+leaving only the text visible.
+
+Proposed Solution: 
+- Option A: Remove the icon and fix the button functionality. 
+- Option B: Fix both the button functionality and the icon rendering.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+6. Customer Search Feature Misbehavior
+--------------------------------------
+Problem: When searching for a customer, the system limits results to 10 for performance, 
+but the search logic prioritizes place values incorrectly. For example:
+- Searching for "Customer 5" shows "Customer 504" and similar entries instead of directly showing "Customer 5".
+- Searching for "Customer 99" fails to display it first if higher place value matches exist (e.g., 199, 299).
+I think it also happen on the other sector (html) as well
+
+Proposed Solution: 
+- Fix search query to prioritize exact matches before partial matches.
+- Adjust SQL LIKE or query filters to ensure "Customer 5" is shown before "Customer 504".
+- Optionally, provide two modes: exact match search and partial match search.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+7. Search Input Clear Button Issue
+----------------------------------
+Problem: Pressing the "X" on the search input box causes the entire HTML page to restart/refresh, 
+instead of simply clearing the search field.
+
+Proposed Solution: 
+- Prevent the default browser behavior on the clear (X) button. 
+- Implement JavaScript to only clear the input value without triggering a page reload.
+- Ensure the search results are reset gracefully when input is cleared.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+8. Customer Generation Confirmation & Management
+------------------------------------------------
+Problem: The "Generate Customer" feature immediately creates a new loyalty member without 
+any confirmation. If clicked by mistake, it instantly adds a new customer record. Additionally:
+- There is no option to delete or edit customer records.
+- Customer name is not required/recorded, making data management difficult since only IDs/numbers exist.
+
+Proposed Solution:
+- Add a confirmation prompt (e.g., "Are you sure you want to generate a new customer?").
+- Implement customer record management: allow editing (e.g., name, details) and deleting if needed.
+- Require at least a name field when generating customers for easier identification.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
+
+
+9. Empty Dashboard
+------------------
+Problem: The current system dashboard is empty and does not provide any useful 
+information or overview to the user. Without visualizations, it lacks quick insights 
+into system performance or customer activity.
+
+Proposed Solution:
+- Populate the dashboard with meaningful elements such as:
+  - Recent transactions summary
+  - Calendar with scheduled/recorded activities
+  - Graphs showing sales and reward trends
+  - Key performance metrics (e.g., total customers, total points distributed)
+- Provide a blueprint-style layout for clarity and easy navigation.
+
+Status & Remarks: Pending
+Date Logged: 2025-10-01
