@@ -37,4 +37,44 @@ purchased, which can be accumulated and redeemed later.
   - Backup script for safe storage  
   - Migration script for schema updates  
 
-- **Web Integration (**
+- **Web Integration (Flask)**  
+  - Displays transactions, rewards, and reports  
+  - (Planned) Dashboard with charts and summaries  
+
+---
+
+## Project Purpose
+This system helps gasoline stations improve customer retention by rewarding loyalty.  
+It provides owners with clear insights into transactions and customer activity while giving customers 
+a reason to keep coming back.  
+
+---
+
+## Requirements
+- Python 3.x  
+- SQLite3  
+- Flask (for web integration)  
+- Other dependencies: listed in `requirements.txt`  
+
+---
+
+## How to Use
+1. Clone the repository.  
+2. Run `create_sample_db.py` to generate the sample database.  
+3. Start the Flask app (`app.py`).  
+4. Access the system via your web browser.  
+
+---
+
+## File Overview
+- **create_sample_db.py** → Generates `database.db` with demo data  
+- **migrate_database.py** → Handles schema changes and backups  
+- **app.py** → Main Flask web application  
+- **requirements.txt** → Python dependencies  
+
+---
+
+## Status
+- Core database and loyalty system implemented  
+- Transaction and customer management in progress  
+- Dashboard and visual reports planned  
