@@ -78,3 +78,6 @@ a reason to keep coming back.
 - Core database and loyalty system implemented  
 - Transaction and customer management in progress  
 - Dashboard and visual reports planned  
+
+### TESTING PHASE
+
